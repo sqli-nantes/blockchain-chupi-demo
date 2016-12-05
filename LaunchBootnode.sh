@@ -1,7 +1,9 @@
 #!/bin/bash
 
-echo "Si vous fermez cette fenêtre, Bootnode ne sera pas entièrement fonctionnel."
 
+echo -ne '\033]0;BOOTNODE\007'
+
+echo "Si vous fermez cette fenêtre, Bootnode ne sera pas entièrement fonctionnel."
 
 sudo service docker start
 

@@ -1,0 +1,7 @@
+#!/bin/bash
+
+ssh pi@10.42.0.61 pkill geth
+ssh pi@10.42.0.61 sudo pkill node
+
+ssh pi@10.42.0.61 rm -rf /home/pi/blockchain-xXx-RPI/geth/node
+ssh pi@10.42.0.61 rm /home/pi/npm-debug.log*

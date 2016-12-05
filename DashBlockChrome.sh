@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo -ne '\033]0;DASHBOARD-GUI\007'
+
 ./GetCertificateFromDashboard.sh
 
 rm certificate.crt
