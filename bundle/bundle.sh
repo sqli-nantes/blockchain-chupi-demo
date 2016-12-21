@@ -52,6 +52,7 @@ if [ "$1" = "start" ]; then
 		echo "Starting the bundle..."
 		cd docker-ap
 		./docker_ap start $2
+		# DHCP CONFIG
 		docker exec ap-container sh -c "echo 'dhcp-host=b8:27:eb:2e:60:a7,chupi,192.168.7.61,12h' >> /etc/dnsmasq.conf"
 		docker exec ap-container service dnsmasq restart
 		cd ..
