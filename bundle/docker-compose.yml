@@ -1,0 +1,34 @@
+version: '2'
+services:
+    ntp:
+        image: cloudwattfr/ntpserver
+        network_mode: "bridge"
+
+    bootnode:
+        image: abohssain/blockchain-bootnode
+        depends_on: 
+            - ntp
+        ports:
+            - "8547:8547"
+            - "8081:8081"
+            - "30303:30303"
+            - "8090:80"
+        volumes:
+            - "./genesis.json:/tmp/genesis.json"
+            - "./names.json:/home/NamesJSON/names.json"
+        container_name: bootnode
+        environment:
+            - NETWORKID=100
+        network_mode: "bridge"
+
+    dashblock:
+        image: abohssain/blockchain-dashboard
+        depends_on: 
+            - bootnode
+        ports:
+            - "8080:8080"
+        volumes:
+            - "./names.json:/home/httpserver/src/public/res/json/names.json"
+            - "./ipRPI.json:/home/httpserver/src/public/res/json/ipRPI.json"
+        container_name: dashblock
+        network_mode: "bridge"
