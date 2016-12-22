@@ -56,6 +56,8 @@ if [ "$1" = "start" ]; then
 		docker exec ap-container service dnsmasq restart
 		cd ..
 		docker-compose up -d
+		docker exec bundle_ntp_1 sh -c "printf 'server 127.127.1.0 iburst\nfudge 127.127.1.0 stratum 10' >> /etc/ntp.conf"
+		docker exec bundle_ntp_1 service ntp restart
 	else
 		echo "You didn't told me which interface I have to use"
 	fi
