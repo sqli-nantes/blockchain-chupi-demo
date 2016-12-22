@@ -27,8 +27,8 @@ if [ "$1" = "pull" ]; then
 	fi	
 
 	docker pull cloudwattfr/ntpserver
-	docker pull abohssain/blockchain-bootnode
-	docker pull abohssain/blockchain-dashboard
+	docker pull sqli-nantes/blockchain-bootnode
+	docker pull sqli-nantes/blockchain-dashboard
 
 	if [ ! -f ./names.json ]; then
 		echo "{}" > names.json
