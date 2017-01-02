@@ -22,6 +22,18 @@ You need to install :
 Then you need some files not provided at the root directory : 
 * genesis.json
 
+# Demo
+
+```
+./bundle.sh pull
+./bundle.sh start wlp1s0
+# Connect Chupi to the AP "DockerAP" with passphrase in wlan_config.txt
+# Start Chupi
+# Connect android device (with AndroidJim app) to the AP "DockerAP" with passphrase in wlan_config.txt
+# Do the demo
+./bundle.sh stop wlp1s0
+```
+
 # Usage
 
 ## Bundle usage
