@@ -5,7 +5,7 @@ services:
         network_mode: "bridge"
 
     bootnode:
-        image: abohssain/blockchain-bootnode
+        image: sqli-nantes/blockchain-bootnode
         depends_on: 
             - ntp
         ports:
@@ -22,7 +22,7 @@ services:
         network_mode: "bridge"
 
     dashblock:
-        image: abohssain/blockchain-dashboard
+        image: sqli-nantes/blockchain-dashboard
         depends_on: 
             - bootnode
         ports:
