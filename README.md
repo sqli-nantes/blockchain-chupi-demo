@@ -1,1 +1,1 @@
-See [README.md](tree/master/bundle) in bundle.
+See [README.md](bundle) in bundle.
