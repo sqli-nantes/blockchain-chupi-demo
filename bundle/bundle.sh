@@ -24,11 +24,11 @@ if [ "$1" = "pull" ]; then
 		cd ..
 	else
 		git clone https://github.com/sqli-nantes/docker-ap-chupi.git docker-ap
-	fi	
+	fi
 
 	docker pull cloudwattfr/ntpserver
-	docker pull sqli-nantes/blockchain-bootnode
-	docker pull sqli-nantes/blockchain-dashboard
+	docker pull sqlinantes/blockchain-bootnode
+	docker pull sqlinantes/blockchain-dashboard
 
 	if [ ! -f ./names.json ]; then
 		echo "[]" > names.json
@@ -43,8 +43,8 @@ if [ "$1" = "pull" ]; then
 		chmod +x iptables_conf.sh
 	fi
 	cp iptables_conf.sh docker-ap/iptables_conf.sh
-	
-	
+
+
 fi
 
 if [ "$1" = "start" ]; then
