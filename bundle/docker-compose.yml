@@ -5,8 +5,8 @@ services:
         network_mode: "bridge"
 
     bootnode:
-        image: sqli-nantes/blockchain-bootnode
-        depends_on: 
+        image: sqlinantes/blockchain-bootnode
+        depends_on:
             - ntp
         ports:
             - "8547:8547"
@@ -22,8 +22,8 @@ services:
         network_mode: "bridge"
 
     dashblock:
-        image: sqli-nantes/blockchain-dashboard
-        depends_on: 
+        image: sqlinantes/blockchain-dashboard
+        depends_on:
             - bootnode
         ports:
             - "8080:8080"
