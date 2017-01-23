@@ -13,24 +13,32 @@ This demo was showed with:
 
 _The bundle is related to the laptop. You may have to configure Chupi or AndJIM regarding to their repository README._
 
-You need to install :
+# Installation
 
-* Docker;
-* Docker-Compose;
-* Git.
+* Docker: https://docs.docker.com/engine/installation/linux/ubuntu/
+* Docker-Compose: https://docs.docker.com/compose/install/
+* Some tools: `sudo apt install git iw`
 
 Then you need some files not provided at the root directory : 
 * genesis.json
+
+# Check hardware requirement
+
+**Your wifi card must support "access point" mode, otherwise this script won't work.**
 
 # Demo
 
 ```
 $ cd bundle
 $ ./bundle.sh pull
-$ ./bundle.sh start wlp1s0
-  # Connect Chupi to the AP "DockerAP" with passphrase in wlan_config.txt
+$ ./bundle.sh start wlp1s0 (or any other name you can get with: )
+  # Connect Chupi to the AP "Blockchain-WIFI" with passphrase in wlan_config.txt
   # Start Chupi
-  # Connect android device (with AndroidJim app) to the AP "DockerAP" with passphrase in wlan_config.txt
+
+  # You can connect to Chupi via SSH, on @IP: 192.168.7.61
+  # SSH connection: docker exec ap-container ssh pi@192.168.7.61
+
+  # Connect android device (with AndroidJim app) to the AP "Blockchain-WIFI" with passphrase in wlan_config.txt
   # Do the demo
 $ ./bundle.sh stop wlp1s0
 ```
@@ -50,10 +58,6 @@ $ ./bundle.sh stop wlp1s0
   - Dashblock, the UI logger of the demo, container named **dashblock**
 * `stop` stop the bundle in the inverse order of start
 *  `clean` delete some files
-
-## Chupi start
-
-You can connect to Chupi via SSH. It's IP will be **192.168.7.61**. One of the multiple ways to connect is `docker exec ap-container ssh pi@192.168.7.61`.
 
 # Configuration
 
