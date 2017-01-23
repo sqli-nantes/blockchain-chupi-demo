@@ -59,6 +59,12 @@ if [ "$1" = "start" ]; then
 		docker-compose up -d
 		docker exec bundle_ntp_1 sh -c "printf 'server 127.127.1.0 iburst\nfudge 127.127.1.0 stratum 10' >> /etc/ntp.conf"
 		docker exec bundle_ntp_1 service ntp restart
+
+    # Restore user rights
+    # /!\ We are under "sudo"
+    CUR_USER=${SUDO_USER:-${USER}}
+    CUR_GROUP=`id -gn $CUR_USER`
+    chown -R $CUR_USER:$CUR_GROUP .
 	else
 		echo "You didn't told me which interface I have to use"
 	fi
