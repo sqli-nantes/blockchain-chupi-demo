@@ -48,6 +48,25 @@ if [ "$1" = "pull" ]; then
 fi
 
 if [ "$1" = "start" ]; then
+
+	RUNNING_CONT=$(docker ps | wc -l)
+	if [[ $RUNNING_CONT -gt 1 ]]; then
+		echo -e "you have \e[1mrunning containers\e[0m. Please stop them to start the demo."
+		exit 1
+	fi
+
+	if [[ ! $(which iw) ]]; then
+		echo -e "\e[1miw command not found\e[0m, can't test Access Point compatibility"
+		exit 1
+	fi
+
+	if [[ ! $(iw list | grep "* AP$") ]]; then
+		echo -e "hardware \e[1mNOT COMPATIBLE\e[0m with access point"
+		exit 1
+	else
+		echo -e "hardware \e[1mCOMPATIBLE\e[0m with access point"
+	fi
+
 	if [ ! -z "$2" ]; then
 		echo "Starting the bundle..."
 		cd docker-ap
